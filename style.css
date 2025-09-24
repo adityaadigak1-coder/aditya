@@ -7,7 +7,10 @@
 }
 
 body {
-  background-color: #fe0202;
+  background-image: url('renignlogo.jpeg'); /* Replace with your actual image path */
+  background-size: cover;                  /* Makes the image cover the whole screen */
+  background-repeat: no-repeat;            /* Prevents the image from repeating */
+  background-position: center center;      /* Centers the image on the screen */
 }
 
 /* Sidebar toggle button */
@@ -309,5 +312,6 @@ button:hover {
     transform: translateX(-50%);
   }
 }
+
 
 
