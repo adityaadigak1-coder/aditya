@@ -2,82 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sidebar with Messaging</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <!-- Sidebar toggle button -->
-  <button id="sidebarToggle" aria-label="Toggle sidebar menu">
-    <img src="renignlogo.jpeg" alt="Menu Icon" />
+  <button id="sidebarToggle" aria-label="Toggle sidebar">
+    <img src="renignlogo.jpeg" alt="Menu" />
   </button>
 
   <!-- Sidebar -->
-  <aside class="sidebar" role="navigation" aria-label="Sidebar navigation">
-    <h2 class="logo">
-      <img src="renignlogo.jpeg" alt="Renign Logo" />
-      Renign
-    </h2>
+  <aside class="sidebar">
+    <h2 class="logo"><img src="renignlogo.jpeg" alt="Logo" />Renign</h2>
     <ul>
-      <li><a href="#" class="menu-item" data-message="Welcome to Home!"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
-      <li><a href="#" id="messageMenu"><i class="fas fa-envelope" aria-hidden="true"></i> Message</a></li>
-      <li><a href="#" id="searchMenu"><i class="fas fa-search" aria-hidden="true"></i> Search</a></li>
-      <li><a href="#" id="accountBtn"><i class="fas fa-user" aria-hidden="true"></i> Account</a></li>
-      <li><a href="#" id="aboutUsLink"><i class="fas fa-info-circle" aria-hidden="true"></i> About us</a></li>
+      <li><a href="#" class="menu-item" data-message="Welcome to Home!"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#" id="messageMenu"><i class="fas fa-envelope"></i> Message</a></li>
+      <li><a href="#" id="searchMenu"><i class="fas fa-search"></i> Search</a></li>
+      <li><a href="#" id="accountBtn"><i class="fas fa-user"></i> Account</a></li>
+      <li><a href="#" id="aboutUsLink"><i class="fas fa-info-circle"></i> About us</a></li>
     </ul>
-    <div class="sidebar-footer" aria-live="polite" aria-atomic="true">
+    <div class="sidebar-footer">
       &copy; 2025 Renign
     </div>
   </aside>
 
   <!-- Account Modal -->
-  <div class="account-modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle" tabindex="-1" aria-hidden="true">
+  <div class="account-modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle" tabindex="-1">
     <div class="account-header">
-      <h3 id="accountModalTitle">Accounts</h3>
+      <span id="accountModalTitle">Accounts</span>
       <button id="closeModal" aria-label="Close account modal">✖</button>
     </div>
-    <div id="accountList" tabindex="0"></div>
-    <button id="addAccountBtn" type="button">➕ Add account</button>
-    <button id="signOutBtn" type="button">🚪 Sign out</button>
+    <div id="accountList"></div>
+    <button id="addAccountBtn">➕ Add account</button>
+    <button id="signOutBtn">🚪 Sign out</button>
   </div>
 
   <!-- Add Account Form Overlay -->
-  <div class="modal-overlay" id="overlay" aria-hidden="true" tabindex="-1">
-    <div class="add-account-form" role="dialog" aria-modal="true" aria-labelledby="addAccountTitle" tabindex="0">
+  <div class="modal-overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="addAccountTitle" tabindex="-1">
+    <div class="add-account-form">
       <h3 id="addAccountTitle">Add New Account</h3>
-      <form id="addAccountForm" novalidate>
-        <div class="input-container">
-          <input type="text" id="nameInput" name="name" required placeholder=" " autocomplete="off" />
-          <label for="nameInput">Enter name</label>
-        </div>
-        <div class="input-container">
-          <input type="email" id="emailInput" name="email" required placeholder=" " autocomplete="off" />
-          <label for="emailInput">Enter email</label>
-        </div>
-        <button id="saveAccountBtn" type="submit">Save</button>
-        <button id="cancelBtn" type="button">Cancel</button>
-      </form>
+      <div class="input-container">
+        <input type="text" id="nameInput" required placeholder=" " />
+        <label for="nameInput">Enter name</label>
+      </div>
+      <div class="input-container">
+        <input type="email" id="emailInput" required placeholder=" " />
+        <label for="emailInput">Enter email</label>
+      </div>
+      <button id="saveAccountBtn">Save</button>
+      <button id="cancelBtn">Cancel</button>
     </div>
   </div>
 
   <!-- Center Message Display -->
-  <div id="centerMessage" class="center-message" role="dialog" aria-modal="true" aria-labelledby="messageTitle" tabindex="-1" aria-hidden="true">
+  <div id="centerMessage" class="center-message" role="dialog" aria-modal="true" aria-labelledby="messageTitle" tabindex="-1">
     <div class="message-box">
       <h2 id="messageTitle">Message</h2>
-      <div id="messageContent" tabindex="0">This is a placeholder message.</div>
+      <div id="messageContent">This is a placeholder message.</div>
 
       <!-- Message Input Area -->
       <div id="messageInputContainer" style="display: none; margin-top: 15px;">
         <input type="text" id="userMessageInput" placeholder="Type your message..." autocomplete="off" />
-        <button id="sendMessageBtn" type="button">Send</button>
+        <button id="sendMessageBtn">Send</button>
       </div>
 
-      <button id="closeMessageBtn" type="button">Close</button>
+      <button id="closeMessageBtn">Close</button>
     </div>
   </div>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
