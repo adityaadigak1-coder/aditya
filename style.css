@@ -1,0 +1,311 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* Sidebar toggle button */
+#sidebarToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: #1e1e2f;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+#sidebarToggle:hover {
+  background: #333;
+}
+
+#sidebarToggle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background: #1e1e2f;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Sidebar menu items as boxes */
+.sidebar ul {
+  list-style: none;
+  flex-grow: 1;
+  margin-top: 20px;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background: #2c2c3e;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background: #5757a1;
+  transform: translateX(3px);
+}
+
+.sidebar ul li a.active {
+  background: #4444cc;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  font-size: 14px;
+  color: #aaa;
+  text-align: left;
+}
+
+/* Account Modal */
+.account-modal {
+  position: fixed;
+  top: 60px;
+  left: 240px;
+  width: 280px;
+  background: #2c2c3e;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  flex-direction: column;
+  z-index: 1050;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#accountList {
+  margin-bottom: 10px;
+}
+
+.account-item {
+  background: #3b3b50;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.account-item:hover {
+  background: #4a4a70;
+}
+
+.account-item.active {
+  background: #5757a1;
+}
+
+/* Buttons */
+button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #666;
+}
+
+#saveAccountBtn, #addAccountBtn {
+  background: #5757a1;
+}
+
+#saveAccountBtn:hover, #addAccountBtn:hover {
+  background: #4444cc;
+}
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+/* Add Account Form */
+.add-account-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Floating input labels */
+.input-container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+  border-bottom: 2px solid #5757a1;
+}
+
+.input-container label {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #5757a1;
+}
+
+/* Center Message */
+.center-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+.message-box {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  text-align: left;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.message-box h2 {
+  margin-bottom: 15px;
+  color: #5757a1;
+  text-align: center;
+}
+
+.message-box p {
+  margin: 0;            /* remove default spacing */
+  padding-top: 8px;     /* optional small gap between paragraphs */
+  text-indent: 0;       /* no first-line indent */
+  line-height: 1.5;     /* makes text readable */
+  color: #333;
+}
+
+
+#closeMessageBtn {
+  background: #5757a1;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+}
+
+#closeMessageBtn:hover {
+  background: #4444cc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+
+  .account-modal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

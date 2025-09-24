@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar with Center Message</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar toggle button -->
+  <button id="sidebarToggle">
+    <img src="renignlogo.jpeg" alt="Menu">
+  </button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo"><img src="renignlogo.jpeg" alt="Logo">Renign</h2>
+    <ul>
+      <li><a href="#" class="menu-item" data-message="Welcome to Home!"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#" class="menu-item" data-message="You have messages."><i class="fas fa-envelope"></i> Message</a></li>
+      <li><a href="#" class="menu-item" data-message="Search the content here."><i class="fas fa-search"></i> Search</a></li>
+      <li><a href="#" id="accountBtn"><i class="fas fa-user"></i> Account</a></li>
+      <li><a href="#" id="aboutUsLink"><i class="fas fa-info-circle"></i> About us</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      &copy; copyri
+    </div>
+  </aside>
+
+  <!-- Account Modal -->
+  <div class="account-modal" id="accountModal">
+    <div class="account-header">
+      <span>Accounts</span>
+      <button id="closeModal">✖</button>
+    </div>
+    <div id="accountList"></div>
+    <button id="addAccountBtn">➕ Add account</button>
+    <button id="signOutBtn">🚪 Sign out</button>
+  </div>
+
+  <!-- Add Account Form Overlay -->
+  <div class="modal-overlay" id="overlay">
+    <div class="add-account-form">
+      <h3>Add New Account</h3>
+      <div class="input-container">
+        <input type="text" id="nameInput" required placeholder=" ">
+        <label for="nameInput">Enter name</label>
+      </div>
+      <div class="input-container">
+        <input type="email" id="emailInput" required placeholder=" ">
+        <label for="emailInput">Enter email</label>
+      </div>
+      <button id="saveAccountBtn">Save</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Center Message -->
+  <div id="centerMessage" class="center-message">
+    <div class="message-box">
+      <h2 id="messageTitle">Message</h2>
+      <div id="messageContent">This is a placeholder message.</div>
+      <button id="closeMessageBtn">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
