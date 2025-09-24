@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar with Center Message</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sidebar with Messaging</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -19,13 +19,13 @@
     <h2 class="logo"><img src="renignlogo.jpeg" alt="Logo">Renign</h2>
     <ul>
       <li><a href="#" class="menu-item" data-message="Welcome to Home!"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#" class="menu-item" data-message="You have messages."><i class="fas fa-envelope"></i> Message</a></li>
-      <li><a href="#" class="menu-item" data-message="Search the content here."><i class="fas fa-search"></i> Search</a></li>
+      <li><a href="#" id="messageMenu"><i class="fas fa-envelope"></i> Message</a></li>
+      <li><a href="#" id="searchMenu"><i class="fas fa-search"></i> Search</a></li>
       <li><a href="#" id="accountBtn"><i class="fas fa-user"></i> Account</a></li>
       <li><a href="#" id="aboutUsLink"><i class="fas fa-info-circle"></i> About us</a></li>
     </ul>
     <div class="sidebar-footer">
-      &copy; copyri
+      &copy; 2025 Renign
     </div>
   </aside>
 
@@ -57,11 +57,18 @@
     </div>
   </div>
 
-  <!-- Center Message -->
+  <!-- Center Message Display -->
   <div id="centerMessage" class="center-message">
     <div class="message-box">
       <h2 id="messageTitle">Message</h2>
       <div id="messageContent">This is a placeholder message.</div>
+
+      <!-- Message Input Area -->
+      <div id="messageInputContainer" style="display: none; margin-top: 15px;">
+        <input type="text" id="userMessageInput" placeholder="Type your message..." />
+        <button id="sendMessageBtn">Send</button>
+      </div>
+
       <button id="closeMessageBtn">Close</button>
     </div>
   </div>
