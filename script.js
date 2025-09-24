@@ -1,9 +1,16 @@
 // === Sidebar Toggle ===
 const sidebar = document.querySelector('.sidebar');
 const sidebarToggle = document.getElementById('sidebarToggle');
+
 sidebarToggle.addEventListener('click', () => {
   sidebar.classList.toggle('hidden');
 });
+
+function closeSidebarOnMobile() {
+  if (window.innerWidth <= 768) {
+    sidebar.classList.add('hidden');
+  }
+}
 
 // === Modal & Message UI Elements ===
 const centerMessage = document.getElementById('centerMessage');
@@ -30,7 +37,8 @@ messageMenu.addEventListener('click', (e) => {
   messageContent.textContent = 'Type and send your message below.';
   messageInputContainer.style.display = 'flex';
   centerMessage.style.display = 'flex';
-  userMessageInput.focus();
+  setTimeout(() => userMessageInput.focus(), 300);
+  closeSidebarOnMobile();
 });
 
 // === Send Message ===
@@ -63,27 +71,34 @@ searchMenu.addEventListener('click', (e) => {
       </ul>
       <button id="clearHistoryBtn">🗑️ Delete History</button>
     `;
-
-    setTimeout(() => {
-      const clearBtn = document.getElementById('clearHistoryBtn');
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          if (confirm('Are you sure you want to delete all message history?')) {
-            messageHistory = [];
-            centerMessage.style.display = 'none';
-          }
-        });
-      }
-    }, 0);
   }
 
   centerMessage.style.display = 'flex';
+  closeSidebarOnMobile();
+});
+
+// Delegate clear history button click
+messageContent.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'clearHistoryBtn') {
+    if (confirm('Are you sure you want to delete all message history?')) {
+      messageHistory = [];
+      centerMessage.style.display = 'none';
+    }
+  }
 });
 
 // === Close Message Modal ===
 closeMessageBtn.addEventListener('click', () => {
   centerMessage.style.display = 'none';
   messageInputContainer.style.display = 'none';
+});
+
+// Close modal when clicking outside message box on mobile
+centerMessage.addEventListener('click', (e) => {
+  if (e.target === centerMessage) {
+    centerMessage.style.display = 'none';
+    messageInputContainer.style.display = 'none';
+  }
 });
 
 // === About Us ===
@@ -93,11 +108,10 @@ aboutUsLink.addEventListener('click', (e) => {
   messageInputContainer.style.display = 'none';
   messageContent.innerHTML = `
     <p>Welcome to Renign, your ultimate platform for modern solutions.</p>
-    
   `;
   centerMessage.style.display = 'flex';
+  closeSidebarOnMobile();
 });
-
 
 // === Account Modal ===
 const accountModal = document.getElementById('accountModal');
@@ -121,6 +135,7 @@ accountBtn.addEventListener('click', (e) => {
   e.preventDefault();
   renderAccountList();
   accountModal.style.display = 'flex';
+  closeSidebarOnMobile();
 });
 
 closeModalBtn.addEventListener('click', () => {
