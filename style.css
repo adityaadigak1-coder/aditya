@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: ##fe0202;
 }
 
 /* Sidebar toggle button */
@@ -309,3 +309,4 @@ button:hover {
     transform: translateX(-50%);
   }
 }
+
