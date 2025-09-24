@@ -11,10 +11,9 @@ body {
   padding: 0;
   background-color: #452b00;
   background-image: url('renignlogo.jpeg');
-  background-size: contain;         /* Show full image without cropping */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  /*  background-color: #000;  /*         /* Fallback background (optional) */
   height: 100vh;
 }
 
@@ -131,7 +130,7 @@ body {
   display: none;
   flex-direction: column;
   z-index: 1050;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .account-header {
@@ -178,11 +177,13 @@ button:hover {
   background: #666;
 }
 
-#saveAccountBtn, #addAccountBtn {
+#saveAccountBtn,
+#addAccountBtn {
   background: #5757a1;
 }
 
-#saveAccountBtn:hover, #addAccountBtn:hover {
+#saveAccountBtn:hover,
+#addAccountBtn:hover {
   background: #4444cc;
 }
 
@@ -193,7 +194,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
@@ -207,7 +208,7 @@ button:hover {
   border-radius: 10px;
   width: 300px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Floating input labels */
@@ -255,7 +256,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
@@ -269,7 +270,7 @@ button:hover {
   text-align: left;
   max-width: 500px;
   width: 90%;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .message-box h2 {
@@ -279,13 +280,12 @@ button:hover {
 }
 
 .message-box p {
-  margin: 0;            /* remove default spacing */
-  padding-top: 8px;     /* optional small gap between paragraphs */
-  text-indent: 0;       /* no first-line indent */
-  line-height: 1.5;     /* makes text readable */
+  margin: 0;
+  padding-top: 8px;
+  text-indent: 0;
+  line-height: 1.5;
   color: #333;
 }
-
 
 #closeMessageBtn {
   background: #5757a1;
@@ -317,7 +317,31 @@ button:hover {
     transform: translateX(-50%);
   }
 }
+/* Message input area */
+#messageInputContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
 
+#userMessageInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
+#sendMessageBtn {
+  background: #5757a1;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+#sendMessageBtn:hover {
+  background: #4444cc;
+}
 
