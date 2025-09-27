@@ -7,360 +7,431 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #452b00;
-  background-image: url('renignlogo.jpeg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Sidebar toggle button */
-#sidebarToggle {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 1100;
-  background: #1e1e2f;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 5px;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background 0.3s;
+  min-height: 100vh;
+  background: #696b6ece;
 }
 
-#sidebarToggle:hover {
-  background: #333;
+.container {
+  width: 900px;
+  max-width: 100%;
+  height: 500px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  
+  /* ðŸŒˆ Permanent rainbow glow */
+  box-shadow: 
+    0 0 20px rgba(255, 0, 0, 0.6),
+    0 0 40px rgba(255, 165, 0, 0.6),
+    0 0 60px rgba(0, 255, 0, 0.6),
+    0 0 80px rgba(0, 0, 255, 0.6),
+    0 0 100px rgba(75, 0, 130, 0.6),
+    0 0 120px rgba(238, 130, 238, 0.6);
+  animation: rainbow-glow 5s linear infinite;
 }
 
-#sidebarToggle img {
+/* ðŸŒˆ Animation for glowing effect */
+@keyframes rainbow-glow {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(255, 0, 0, 0.8),
+      0 0 40px rgba(255, 165, 0, 0.8),
+      0 0 60px rgba(0, 255, 0, 0.8),
+      0 0 80px rgba(0, 0, 255, 0.8),
+      0 0 100px rgba(75, 0, 130, 0.8),
+      0 0 120px rgba(238, 130, 238, 0.8);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(238, 130, 238, 0.8),
+      0 0 60px rgba(75, 0, 130, 0.8),
+      0 0 80px rgba(0, 0, 255, 0.8),
+      0 0 100px rgba(0, 255, 0, 0.8),
+      0 0 120px rgba(255, 165, 0, 0.8),
+      0 0 140px rgba(255, 0, 0, 0.8);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(255, 0, 0, 0.8),
+      0 0 40px rgba(255, 165, 0, 0.8),
+      0 0 60px rgba(0, 255, 0, 0.8),
+      0 0 80px rgba(0, 0, 255, 0.8),
+      0 0 100px rgba(75, 0, 130, 0.8),
+      0 0 120px rgba(238, 130, 238, 0.8);
+  }
+}
+
+
+/* Forms */
+.form-container {
+  width: 65%;
+  padding: 50px;
+  transition: 0.6s;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.form-container input {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+  box-shadow: 0 0 0px transparent; /* no glow by default */
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
+
+/* ðŸŒŸ Neon glow on hover */
+.form-container input:hover {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  border-color: rgba(0, 255, 255, 0.9);
+}
+
+/* ðŸŒŸ Neon glow on focus (when typing) */
+.form-container input:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+  border-color: rgba(0, 255, 255, 1);
+}
+
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.8);
+}
+
+.form-container button:hover {
+  background: #357ABD;
+}
+
+.social-login {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-login i {
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid #f70000;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.social-login i:hover {
+  background: #4a90e2;
+}
+
+/* Blue side panel */
+/* ⭐ Star Side Panel */
+/* ⭐ Star Side Panel */
+.side-panel {
+  width: 50%;
+  position: absolute;
   top: 0;
-  left: 0;
-  width: 220px;
-  height: 100vh;
-  background: #1e1e2f;
-  color: white;
-  padding: 20px;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: left 0.3s ease;
-  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s ease-in-out;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  background: black; /* 🌌 Night-sky base */
+}
+
+/* Stars layer (animated background) */
+.side-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(4px 4px at 20% 30%, orange, transparent),
+              radial-gradient(3px 3px at 70% 40%, #4a90e2, transparent),
+              radial-gradient(4px 4px at 10% 70%, white, transparent),
+              radial-gradient(4px 4px at 50% 80%, yellow, transparent),
+              radial-gradient(3.5px 3.5px at 90% 20%, rgb(255, 0, 0), transparent),
+              radial-gradient(4px 4px at 10% 70%, white, transparent);
+  background-size: 200px 120px;
+  animation: starDrift 12s ease-in-out infinite alternate; /* 🌠 Drift effect */
+  z-index: 0;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px white) drop-shadow(0 0 10px #4a90e2); /* ⭐ Glow */
+}
+
+/* Make sure text stays above stars */
+.side-panel * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep sliding effect */
+.container.register-mode .side-panel {
+  right: auto;
   left: 0;
-  pointer-events: auto;
 }
 
-.sidebar.hidden {
-  left: -220px;
-  pointer-events: none;
+/* Star drift animation (move right & left instead of up) */
+@keyframes starDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 200px 0; } /* drift horizontally */
 }
 
-/* For mobile, sidebar hidden by default */
+
+
+.side-panel h1 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.side-panel button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.side-panel button:hover {
+  background: #4a90e2;
+  color: #ffffff;
+}
+
+/* Sliding effect */
+.container.register-mode .side-panel {
+  right: auto;
+  left: 0;
+}
+
+.container.register-mode .form-container.login {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.container.register-mode .form-container.register {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.form-container.register {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 0.6s;
+}
 @media (max-width: 768px) {
-  .sidebar {
-    left: -220px;
-    pointer-events: none;
-  }
-  .sidebar.visible {
-    left: 0;
-    pointer-events: auto;
+  .container {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
   }
 
-  /* Account modal fullscreen on mobile */
-  .account-modal {
-    position: fixed;
+  .form-container {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  }
+
+  /* Login form visible by default */
+  .form-container.login {
+    top: 0;
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* Hide register form initially (pushed down) */
+  .form-container.register {
+    top: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  /* When in register-mode â†’ slide register up */
+  .container.register-mode .form-container.login {
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .container.register-mode .form-container.register {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .side-panel {
+    position: relative;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    z-index: 3;
+  }
+}
+
+/* Mobile View */
+/* 📱 Mobile View */
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Forms wrapper fills available space */
+  .form-wrapper {
+    flex: 1;
+    position: relative;
+    background: white;
+    overflow: hidden;
+    transition: order 0.8s ease-in-out;
+  }
+
+  .form-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;   /* ✅ keep absolute for sliding */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+
+    /* ✅ internal flexbox centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical */
+    align-items: center;       /* horizontal */
+    text-align: center;
+
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
     padding: 20px;
-    border-radius: 0;
-    overflow-y: auto;
-    background: #2c2c3e;
-    z-index: 1500;
+    box-sizing: border-box;
   }
 
-  .center-message {
-    padding: 10px;
+  /* ✅ keep inputs/buttons nicely aligned */
+  .form-container input,
+  .form-container button {
+    width: 80%;
+    max-width: 320px;
+    margin: 8px 0;
   }
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: white;
-}
-
-.logo img {
-  width: 30px;
-  height: 30px;
-}
-
-/* Sidebar menu items as boxes */
-.sidebar ul {
-  list-style: none;
-  flex-grow: 1;
-  margin-top: 20px;
-}
-
-.sidebar ul li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 15px;
-  background: #2c2c3e;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.sidebar ul li a:hover {
-  background: #5757a1;
-  transform: translateX(3px);
-}
-
-.sidebar ul li a.active {
-  background: #4444cc;
-}
-
-/* Sidebar footer */
-.sidebar-footer {
-  font-size: 14px;
-  color: #aaa;
-  text-align: left;
-}
-
-/* Account Modal */
-.account-modal {
-  position: fixed;
-  top: 60px;
-  left: 240px;
-  width: 280px;
-  background: #2c2c3e;
-  color: white;
-  border-radius: 10px;
-  padding: 15px;
-  display: none;
-  flex-direction: column;
-  z-index: 1050;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  max-height: calc(100vh - 80px);
-}
-
-.account-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-#accountList {
-  margin-bottom: 10px;
-}
-
-.account-item {
-  background: #3b3b50;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.account-item:hover {
-  background: #4a4a70;
-}
-
-.account-item.active {
-  background: #5757a1;
-}
-
-/* Buttons */
-button {
-  background: #444;
-  color: white;
-  border: none;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #666;
-}
-
-#saveAccountBtn,
-#addAccountBtn {
-  background: #5757a1;
-}
-
-#saveAccountBtn:hover,
-#addAccountBtn:hover {
-  background: #4444cc;
-}
-
-/* Overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1200;
-}
-
-/* Add Account Form */
-.add-account-form {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Floating input labels */
-.input-container {
-  position: relative;
-  margin: 20px 0;
-}
-
-.input-container input {
-  width: 100%;
-  padding: 12px 10px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  outline: none;
-  font-size: 16px;
-  background: transparent;
-  transition: border-color 0.3s;
-}
-
-.input-container input:focus {
-  border-bottom: 2px solid #5757a1;
-}
-
-.input-container label {
-  position: absolute;
-  left: 10px;
-  top: 12px;
-  color: #888;
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.3s ease all;
-}
-
-.input-container input:focus + label,
-.input-container input:not(:placeholder-shown) + label {
-  top: -10px;
-  font-size: 12px;
-  color: #5757a1;
-  background: white;
-  padding: 0 5px;
-}
-
-/* Center Message Display */
-.center-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #2c2c3e;
-  color: white;
-  border-radius: 10px;
-  padding: 25px 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  display: none;
-  z-index: 1300;
-  max-width: 90vw;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.message-box {
+  .form-container.register input,
+.form-container.register button {
+  width: 200%;
   max-width: 400px;
 }
 
-#messageTitle {
-  margin-bottom: 10px;
+  /* Login visible by default */
+  .form-container.login {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 2;
+  }
+  .form-container.register {
+    transform: translateY(100%);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  /* Side-panel defaults to TOP */
+  .side-panel {
+    height: 30%;
+    transition: all 0.8s ease-in-out; /* slower */
+    border-radius: 0 0 20px 20px;
+    order: -1;   /* show before forms */
+  }
+
+  /* 👉 When in register mode, side-panel moves to BOTTOM */
+  .container.register-mode .side-panel {
+    order: 1;    /* move after forms */
+    border-radius: 20px 20px 0 0;
+  }
+
+  /* Register form slides in */
+  .container.register-mode .form-container.login {
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: 1;
+  }
+  .container.register-mode .form-container.register {
+    transform: translateY(0) translateX(80px);
+    opacity: 1;
+    z-index: 2;
+  }
 }
 
-#messageContent {
-  min-height: 60px;
-  margin-bottom: 10px;
-  word-wrap: break-word;
+
+
+
+
+
+
+
+
+    
+.separator {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #777;
+  font-weight: bold;
+  width: 100%;         /* âœ… Keep full width */
+  flex-shrink: 0;      /* âœ… Prevent collapse on toggle */
 }
 
-/* Message Input */
-#userMessageInput {
-  width: calc(100% - 60px);
-  padding: 8px;
-  border-radius: 5px 0 0 5px;
-  border: none;
-  outline: none;
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
 }
 
-#sendMessageBtn {
-  width: 50px;
-  border-radius: 0 5px 5px 0;
-  background: #5757a1;
-  border: none;
-  cursor: pointer;
-  color: white;
+.separator:not(:empty)::before {
+  margin-right: 10px;
 }
 
-#closeMessageBtn {
-  margin-top: 15px;
-  background: #444;
-  width: 100%;
+.separator:not(:empty)::after {
+  margin-left: 10px;
+}
+#loginBtn:hover {
+  box-shadow: 0 0 15px 4px rgba(0, 255, 255, 0.9); /* Cyan glow */
 }
 
-/* Scrollbar styling for modals */
-.account-modal::-webkit-scrollbar,
-.center-message::-webkit-scrollbar,
-.modal-overlay .add-account-form::-webkit-scrollbar {
-  width: 6px;
+#registerBtn:hover {
+  box-shadow: 0 0 15px 4px rgba(0, 255, 255, 0.9); /* Green glow */
 }
 
-.account-modal::-webkit-scrollbar-thumb,
-.center-message::-webkit-scrollbar-thumb,
-.modal-overlay .add-account-form::-webkit-scrollbar-thumb {
-  background-color: #5757a1;
-  border-radius: 3px;
-}
-
-/* Accessibility focus styles */
-button:focus,
-a:focus,
-input:focus {
-  outline: 2px solid #5757a1;
-  outline-offset: 2px;
+#logoutBtn:hover {
+  box-shadow: 0 0 20px 4px rgba(255, 0, 0, 0.8); /* Red glow */
 }
